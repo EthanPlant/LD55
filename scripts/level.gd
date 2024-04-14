@@ -4,6 +4,7 @@ extends Node2D
 const PORTAL: PackedScene = preload("res://scenes/entities/portal.tscn")
 
 @export var level_id: int
+@export var level_start: Node2D
 
 var level_data: LevelData
 
@@ -20,3 +21,11 @@ func _physics_process(_delta):
 		portal.add_to_group("portals")
 		portal.global_position = get_global_mouse_position()
 		portal.world_switch.connect($TileMap.switch_world)
+
+func _on_player_player_died():
+	# Remove all portals
+	for portal in get_tree().get_nodes_in_group("portals"):
+		portal.queue_free()
+	
+	if Global.current_world == 2:
+		$TileMap.switch_world()

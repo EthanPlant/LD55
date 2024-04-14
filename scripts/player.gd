@@ -1,5 +1,7 @@
+class_name Player
 extends CharacterBody2D
 
+signal player_died
 
 @export var speed: float = 300.0
 @export var jump_vel: float = -250.0
@@ -11,10 +13,14 @@ var _gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _is_jumping: bool = false
 var _jump_timer: float = 0
 var _coyote_timer: float = 0
+var can_control: bool = true
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
+	if not can_control:
+		return
+	
 	if not is_on_floor() and not _is_jumping:
 		velocity.y += _gravity * grav_mul * delta
 		_coyote_timer += delta
@@ -45,3 +51,19 @@ func _physics_process(delta):
 		_animated_sprite.play("idle")
 
 	move_and_slide()
+
+
+func handle_danger():
+	print("You died!")
+	visible = false
+	can_control = false
+
+	await get_tree().create_timer(0.5).timeout
+	emit_signal("player_died")
+	reset_player()
+
+
+func reset_player():
+	global_position = LevelManager.loaded_level.level_start.global_position
+	visible = true
+	can_control = true

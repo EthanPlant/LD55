@@ -13,6 +13,7 @@ level_path = "tutorial_level"
 [node name="Main" type="Node"]
 script = ExtResource("1_dy0ed")
 available_levels = Array[ExtResource("2_0mn3a")]([SubResource("Resource_6r3sj")])
+metadata/_edit_horizontal_guides_ = [-117.0]
 
 [node name="UIMain" type="CanvasLayer" parent="."]
 
