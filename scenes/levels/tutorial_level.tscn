@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh4j2in0ie8ji"]
+[gd_scene load_steps=9 format=3 uid="uid://bh4j2in0ie8ji"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_3qc0e"]
 [ext_resource type="Script" path="res://scripts/world_switcher.gd" id="1_18t4u"]
 [ext_resource type="Texture2D" uid="uid://bcgxx0txeteof" path="res://assets/textures/world1_tileset.png" id="1_jle6i"]
 [ext_resource type="Texture2D" uid="uid://bphxkcmnsfgx7" path="res://assets/textures/world2_tileset.png" id="2_0s0ub"]
@@ -216,6 +217,7 @@ sources/0 = SubResource("TileSetAtlasSource_u6bm8")
 sources/1 = SubResource("TileSetAtlasSource_di48k")
 
 [node name="TutorialLevel" type="Node2D"]
+script = ExtResource("1_3qc0e")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)

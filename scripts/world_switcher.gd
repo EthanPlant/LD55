@@ -9,6 +9,7 @@ func _ready():
 	for layer in WORLD_2_LAYERS:
 		set_layer_enabled(layer, false)
 
+
 func _process(_delta):
 	if Input.is_action_just_pressed("switch_world"):
 		Global.current_world = 1 if Global.current_world == 2 else 2
