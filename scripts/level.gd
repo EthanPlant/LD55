@@ -20,7 +20,12 @@ func _physics_process(_delta):
 		add_child(portal)
 		portal.add_to_group("portals")
 		portal.global_position = get_global_mouse_position()
-		portal.world_switch.connect($TileMap.switch_world)
+		portal.world_switch.connect(_on_world_switch)
+
+
+func _on_world_switch():
+	$UI.get_node("WorldFade").get_node("AnimationPlayer").play("fade_blue" if Global.current_world == 1 else "fade_orange")
+	$TileMap.switch_world()
 
 func _on_player_player_died():
 	# Remove all portals

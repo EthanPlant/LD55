@@ -5,6 +5,7 @@
 [sub_resource type="SystemFont" id="SystemFont_fxr5o"]
 font_names = PackedStringArray("")
 font_weight = 900
+subpixel_positioning = 0
 oversampling = 3.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_pnbl4"]
@@ -16,6 +17,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="SystemFont" id="SystemFont_ss44e"]
 font_names = PackedStringArray("")
 font_weight = 700
+subpixel_positioning = 0
 oversampling = 3.0
 
 [node name="MainMenu" type="Control"]

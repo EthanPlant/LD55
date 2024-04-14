@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh4j2in0ie8ji"]
+[gd_scene load_steps=15 format=3 uid="uid://bh4j2in0ie8ji"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_3qc0e"]
 [ext_resource type="Script" path="res://scripts/world_switcher.gd" id="1_18t4u"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5jh5jaayja54" path="res://scenes/entities/player.tscn" id="2_7x7dy"]
 [ext_resource type="PackedScene" uid="uid://b0c42n5yaoakj" path="res://scenes/entities/danger_zone.tscn" id="5_agmns"]
 [ext_resource type="PackedScene" uid="uid://cpye1rcw8vwog" path="res://scenes/entities/door.tscn" id="6_dnq1p"]
+[ext_resource type="PackedScene" uid="uid://ch327sm7ds0us" path="res://scenes/ui/world_fade.tscn" id="8_qepqw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6bm8"]
 texture = ExtResource("1_jle6i")
@@ -282,5 +283,9 @@ position = Vector2(480, 128)
 
 [node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2(-85, 207)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="WorldFade" parent="UI" instance=ExtResource("8_qepqw")]
 
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
