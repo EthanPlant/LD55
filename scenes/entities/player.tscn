@@ -61,7 +61,7 @@ script = ExtResource("1_3v4ms")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bdw2u")
 animation = &"idle"
-frame_progress = 0.162621
+frame_progress = 0.63361
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(117, -56)

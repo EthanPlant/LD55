@@ -1,9 +1,7 @@
 extends TileMap
 
-const WORLD_1_LAYERS = [0, 1, 2]
-const WORLD_2_LAYERS = [3, 4, 5]
-
-var _current_world = 1
+const WORLD_1_LAYERS: Array[int]  = [0, 1, 2]
+const WORLD_2_LAYERS: Array[int] = [3, 4, 5]
 
 func _ready():
 	for layer in WORLD_1_LAYERS:
@@ -13,8 +11,8 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("switch_world"):
-		_current_world = 1 if _current_world == 2 else 2
-		if _current_world == 1:
+		Global.current_world = 1 if Global.current_world == 2 else 2
+		if Global.current_world == 1:
 			for layer in WORLD_1_LAYERS:
 				set_layer_enabled(layer, true)
 			for layer in WORLD_2_LAYERS:
