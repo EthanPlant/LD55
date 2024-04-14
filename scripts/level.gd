@@ -14,4 +14,4 @@ func _process(_delta):
 		add_child(portal)
 		portal.add_to_group("portals")
 		portal.global_position = get_global_mouse_position()
-		
+		portal.world_switch.connect($TileMap.switch_world)
