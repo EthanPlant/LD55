@@ -16,5 +16,6 @@ func _process(delta):
 		$Area2D.get_node("CollisionShape2D").disabled = false
 
 func _on_area_2d_body_entered(body:Node2D):
-	if body.name == "Player":
-		print("Level complete!")
+	if body is Player:
+		Global.current_world = 1
+		LevelManager.load_level(LevelManager.loaded_level.level_id + 1)
