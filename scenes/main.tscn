@@ -1,10 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfdyk8q80jrfi"]
+[gd_scene load_steps=5 format=3 uid="uid://dfdyk8q80jrfi"]
 
-[ext_resource type="PackedScene" uid="uid://bh4j2in0ie8ji" path="res://scenes/levels/tutorial_level.tscn" id="1_lb3v0"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_dy0ed"]
+[ext_resource type="PackedScene" uid="uid://bjir21l76d5k2" path="res://scenes/ui/main_menu.tscn" id="1_lq4e8"]
+[ext_resource type="Script" path="res://scripts/level_data.gd" id="2_0mn3a"]
+
+[sub_resource type="Resource" id="Resource_6r3sj"]
+script = ExtResource("2_0mn3a")
+level_id = 0
+level_name = "Tutorial Level"
+level_path = "tutorial_level"
 
 [node name="Main" type="Node"]
+script = ExtResource("1_dy0ed")
+available_levels = Array[ExtResource("2_0mn3a")]([SubResource("Resource_6r3sj")])
+
+[node name="UIMain" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="UIMain" instance=ExtResource("1_lq4e8")]
 
 [node name="2DScene" type="Node2D" parent="."]
-
-[node name="TutorialLevel" parent="2DScene" instance=ExtResource("1_lb3v0")]
-position = Vector2(1, 0)
